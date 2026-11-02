@@ -1,0 +1,856 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Home | Felix Vance Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+    /* ===== BASE ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #0b0d14;
+        color: #e6e8f0;
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        min-height: 100vh;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+
+    /* ===== HEADER ===== */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 48px;
+        background: #0d0f17;
+        border-bottom: 1px solid #1c2030;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .logo i {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #a99bff;
+    }
+
+    nav {
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: #b6bbcf;
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+        transition: .2s;
+    }
+
+    nav a:hover,
+    nav a.on {
+        color: #fff;
+        border-bottom-color: #a99bff;
+    }
+
+    .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #7661fa, #a99bff);
+    color: #0b0d14;
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: .2s;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(108, 99, 255, .4);
+    }
+
+
+    /* ===== LAYOUT ===== */
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 44px 32px 60px;
+    }
+
+    .ph {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 30px;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #1a1e2d;
+    }
+
+    .ph small {
+        display: block;
+        font-size: 12.5px;
+        letter-spacing: 1.5px;
+        color: #a99bff;
+        text-transform: uppercase;
+    }
+
+    .ph h2 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 39px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -1px;
+    }
+
+    .ph p {
+        max-width: 310px;
+        font-size: 13.5px;
+        color: #a8adc2;
+    }
+
+    .card {
+        background: #151823;
+        border: 1px solid #20243a;
+        border-radius: 14px;
+        padding: 26px;
+        transition: .25s;
+    }
+
+    .card:hover {
+        border-color: #3a3f66;
+    }
+
+
+    /* ===== FOOTER ===== */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 28px 48px;
+        border-top: 1px solid #1c2030;
+        background: #0a0c12;
+        font-size: 13px;
+        color: #a8adc2;
+    }
+
+    footer p {
+        max-width: 420px;
+        margin-top: 6px;
+    }
+
+    footer nav {
+        flex-wrap: wrap;
+        gap: 8px 22px;
+        max-width: 340px;
+        justify-content: flex-end;
+    }
+
+    footer nav a {
+        font-size: 13px;
+        padding: 0;
+        border: 0;
+    }
+
+
+    /* ===== HOME ===== */
+
+    /* Kolom kanan dan komposisi foto mengikuti lebar layar (em = 1vw) */
+
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr min(40.6vw, 552px);
+        gap: 0;
+        align-items: start;
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 90px 64px 40px;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border: 1px solid #2a2f45;
+        border-radius: 20px;
+        background: #141725;
+        font-size: 12.5px;
+        color: #c0c5d8;
+    }
+
+    .badge b {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #a99bff;
+    }
+
+    h1 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 54px;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -2px;
+        margin: 26px 0 22px;
+    }
+
+    h1 span {
+    background: linear-gradient(90deg, #F5B9DF, #a99bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    }
+
+    .hero p {
+        font-size: 16.5px;
+        color: #cdd1e2;
+        max-width: 540px;
+        line-height: 1.75;
+    }
+
+    .cta {
+        display: flex;
+        gap: 14px;
+        margin: 30px 0 34px;
+    }
+
+    .cta .btn {
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: 800 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(90deg, #F5B9DF, #a99bff);
+    color: #0b0d14;
+    }
+
+    .ghost {
+        padding: 14px 24px;
+        border: 1px solid #2a2f45;
+        border-radius: 12px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: #a99bff;
+        transition: .2s;
+    }
+
+    .ghost:hover {
+        background: #171a29;
+        border-color: #6c63ff;
+    }
+
+    .stats {
+        display: flex;
+        gap: 46px;
+        padding-top: 24px;
+        border-top: 1px solid #1a1e2d;
+    }
+
+    .stats b {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 21px;
+    background: linear-gradient(90deg, #7d65ff, #dbd6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    }
+
+    .stats small {
+        font-size: 12.5px;
+        color: #9aa0b8;
+    }
+
+
+    /* ===== PHOTO ===== */
+
+    .photo {
+        position: relative;
+        font-size: min(1vw, 13.6px);
+        width: 40.6em;
+        height: 44em;
+        margin-top: .8em;
+    }
+
+  .circle {
+    position: absolute;
+    left: 8.4em;
+    top: 9.1em;
+    width: 25.5em;
+    height: 25.5em;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a99bff, #F5B9DF);
+    z-index: 1;
+    }
+
+    .glow {
+        position: absolute;
+        left: 20em;
+        top: 22em;
+        width: 30em;
+        height: 24em;
+        z-index: 0;
+        background: radial-gradient(
+            closest-side,
+            rgba(110, 80, 200, .5),
+            rgba(60, 40, 120, .2) 60%,
+            transparent
+        );
+    }
+
+    .fc {
+        position: absolute;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: .8em;
+        padding: .9em 1.4em;
+        font-size: 1em;
+        background: #1b1e2c;
+        border: 1px solid #2c3048;
+        border-radius: 1em;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+        transition: .25s;
+    }
+
+    .fc:hover {
+        transform: translateY(-4px);
+    }
+
+    .fc small {
+        display: block;
+        font-size: .8em;
+        letter-spacing: .1em;
+        color: #a8adc2;
+    }
+
+    .fc b {
+        font-size: 1.2em;
+    }
+
+    .fc1 {
+        left: 26.8em;
+        top: 9.5em;
+    }
+
+    .fc2 {
+        left: 0;
+        top: 34.4em;
+    }
+
+    .fc i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #a99bff;
+    }
+
+    /* ===== PHOTO ===== */
+.person {
+    position: absolute;
+    z-index: 2;
+    top: -4em;
+    width: 45em;
+    height: 60em;
+    background-image: url('foto.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+/* ========================================
+SPACE BACKGROUND
+======================================== */
+
+#space-background {
+position: fixed;
+inset: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+pointer-events: none;
+z-index: -1;
+background: #0b0d14;
+}
+
+/* ===== STARS ===== */
+
+#stars-container {
+position: absolute;
+inset: 0;
+overflow: hidden;
+}
+
+.star {
+position: absolute;
+display: block;
+border-radius: 50%;
+background: #ffffff;
+opacity: var(--star-opacity);
+
+animation: star-twinkle var(--twinkle-duration) ease-in-out infinite;
+animation-delay: var(--twinkle-delay);
+
+will-change: opacity;
+
+}
+
+.star.bright {
+box-shadow:
+0 0 4px rgba(255, 255, 255, 0.8),
+0 0 8px rgba(169, 155, 255, 0.5);
+}
+
+/* ===== STAR TWINKLING ===== */
+
+@keyframes star-twinkle {
+0%, 100% {
+opacity: var(--star-opacity);
+}
+
+50% {
+    opacity: 0.15;
+}
+
+}
+
+/* ===== METEORS ===== */
+
+#meteor-container {
+position: absolute;
+inset: 0;
+overflow: hidden;
+}
+
+.meteor {
+position: absolute;
+width: var(--meteor-length);
+height: var(--meteor-size);
+border-radius: 50%;
+
+background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(169, 155, 255, 0.15),
+    rgba(210, 204, 255, 0.7),
+    #ffffff
+);
+
+box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 12px rgba(169, 155, 255, 0.4);
+
+opacity: 0;
+
+animation: meteor-flight var(--meteor-duration) linear forwards;
+
+will-change: transform, opacity;
+
+}
+
+.meteor::after {
+content: "";
+position: absolute;
+right: 0;
+top: 50%;
+width: 4px;
+height: 4px;
+border-radius: 50%;
+background: #ffffff;
+transform: translateY(-50%);
+
+box-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #a99bff;
+
+}
+
+/* ===== METEOR MOVEMENT ===== */
+
+@keyframes meteor-flight {
+0% {
+transform: translate3d(0, 0, 0) rotate(35deg);
+opacity: 0;
+}
+
+10% {
+    opacity: 1;
+}
+
+70% {
+    opacity: 0.8;
+}
+
+100% {
+    transform: translate3d(80vw, 100vh, 0) rotate(35deg);
+    opacity: 0;
+}
+
+}
+
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+.star {
+animation: none;
+}
+
+.meteor {
+    display: none;
+    animation: none;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+<!-- ===== SPACE BACKGROUND ===== -->
+<div id="space-background" aria-hidden="true">
+    <div id="stars-container"></div>
+    <div id="meteor-container"></div>
+</div>
+
+    <!-- ===== HEADER ===== -->
+<header>
+
+    <a class="logo" href="index.html">
+        <i></i>
+        Felix Vance Portofolio
+    </a>
+
+    <nav>
+        <a href="index.html" class="on">Home</a>
+        <a href="about.html">About</a>
+        <a href="skill.html">Skills</a>
+        <a href="experience.html">Experience</a>
+        <a href="project.html">Projects</a>
+    </nav>
+
+    <a class="btn" href="contact.html">Let's Talk</a>
+
+</header>
+
+
+<!-- ===== HOME CONTENT ===== -->
+<section class="hero">
+
+    <div>
+
+        <span class="badge">
+            <b></b>
+            Available for Selected Projects &amp; Creative Advisory
+        </span>
+
+        <h1>
+            Crafting refined <span>UI/UX design</span>, expressive web &amp; brand identities.
+        </h1>
+
+        <p>
+            Hi, I'm Felix Vance - Lead Product Designer &amp; Creative Editor. I blend human ergonomics, high-converting digital interfaces, and cinematic motion design to build memorable brand stories.
+        </p>
+
+        <div class="cta">
+
+            <a class="btn" href="experience.html">
+                &#9786; Explore Selected Work
+            </a>
+
+            <a class="ghost" href="contact.html">
+                &#9993; Get in Touch
+            </a>
+
+        </div>
+
+        <div class="stats">
+
+            <div>
+                <b>8+ Years</b>
+                <small>Design Experience</small>
+            </div>
+
+            <div>
+                <b>60+</b>
+                <small>Shipped Systems</small>
+            </div>
+
+            <div>
+                <b>99.4%</b>
+                <small>Client Satisfaction</small>
+            </div>
+
+            <div>
+                <b>12M+</b>
+                <small>Global Users<br>Reached</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===== PHOTO COMPOSITION ===== -->
+    <div class="photo">
+
+        <div class="glow"></div>
+        <div class="circle"></div>
+        <div class="person"></div>
+
+        <div class="fc fc1">
+            <i></i>
+            <div>
+                <small>AUDIENCE REACH</small>
+                <b>2.8M+ Views</b>
+            </div>
+        </div>
+
+        <div class="fc fc2">
+            <span>&#9881;</span>
+            <div>
+                <small>SPECIALIZATION</small>
+                <b>UI/UX &amp; Brand Systems</b>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+
+    <div>
+        <p>
+            &copy; 2025 Lead Product Designer, UI/UX Architect &amp; Creative Editor. All rights reserved. Built with pure CSS &amp; modern semantic HTML.
+        </p>
+    </div>
+
+    <nav>
+        <a href="#">Architecture Specs</a>
+        <a href="#">System Status</a>
+        <a href="#">Source Repository</a>
+        <a href="#">Security PGP</a>
+    </nav>
+
+</footer>
+
+
+<script>
+
+/* ========================================
+   SPACE BACKGROUND ANIMATION
+======================================== */
+
+const starsContainer = document.getElementById("stars-container");
+const meteorContainer = document.getElementById("meteor-container");
+
+
+// ===== CONFIGURATION =====
+
+const STAR_COUNT_DESKTOP = 160;
+const STAR_COUNT_MOBILE = 80;
+
+const MIN_METEOR_DELAY = 2000;
+const MAX_METEOR_DELAY = 4000;
+
+const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
+
+// ===== RANDOM NUMBER =====
+
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+
+// ========================================
+// 1. GENERATE STARS
+// ========================================
+
+function generateStars() {
+
+    if (!starsContainer) return;
+
+    starsContainer.innerHTML = "";
+
+    const isMobile = window.innerWidth <= 768;
+
+    const starCount = isMobile
+        ? STAR_COUNT_MOBILE
+        : STAR_COUNT_DESKTOP;
+
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < starCount; i++) {
+
+        const star = document.createElement("span");
+
+        const size = random(1, 3.2);
+        const opacity = random(0.35, 0.9);
+        const duration = random(2, 6);
+        const delay = random(-6, 0);
+
+        const positionX = random(0, 100);
+        const positionY = random(0, 100);
+
+        const isPurple = Math.random() > 0.75;
+
+        star.className = "star";
+
+        if (opacity > 0.75) {
+            star.classList.add("bright");
+        }
+
+        star.style.left = positionX + "%";
+        star.style.top = positionY + "%";
+
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+
+        star.style.background = isPurple
+            ? "#c5baff"
+            : "#ffffff";
+
+        star.style.setProperty("--star-opacity", opacity);
+        star.style.setProperty("--twinkle-duration", duration + "s");
+        star.style.setProperty("--twinkle-delay", delay + "s");
+
+        fragment.appendChild(star);
+
+    }
+
+    starsContainer.appendChild(fragment);
+
+}
+
+
+// ========================================
+// 2. GENERATE METEORS
+// ========================================
+
+function createMeteor() {
+
+    if (!meteorContainer || reducedMotion) return;
+
+    const meteor = document.createElement("div");
+
+    const startX = random(0, 80);
+    const startY = random(-20, 15);
+
+    const length = random(65, 120);
+    const size = random(1, 2);
+
+    const duration = random(1.5, 2.8);
+
+    meteor.className = "meteor";
+
+    meteor.style.left = startX + "vw";
+    meteor.style.top = startY + "vh";
+
+    meteor.style.setProperty("--meteor-length", length + "px");
+    meteor.style.setProperty("--meteor-size", size + "px");
+    meteor.style.setProperty("--meteor-duration", duration + "s");
+
+    meteorContainer.appendChild(meteor);
+
+    meteor.addEventListener("animationend", () => {
+        meteor.remove();
+    }, { once: true });
+
+    setTimeout(() => {
+        meteor.remove();
+    }, duration * 1000 + 500);
+
+}
+
+
+// ========================================
+// 3. METEOR INTERVAL
+// ========================================
+
+function scheduleMeteor() {
+
+    if (reducedMotion) return;
+
+    const delay = random(
+        MIN_METEOR_DELAY,
+        MAX_METEOR_DELAY
+    );
+
+    setTimeout(() => {
+
+        createMeteor();
+
+        scheduleMeteor();
+
+    }, delay);
+
+}
+
+
+// ========================================
+// 4. INITIALIZE
+// ========================================
+
+generateStars();
+
+if (!reducedMotion) {
+    scheduleMeteor();
+}
+
+
+// ========================================
+// 5. RESPONSIVE
+// ========================================
+
+let resizeTimer;
+
+window.addEventListener("resize", () => {
+
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+        generateStars();
+    }, 300);
+
+});
+
+</script>
+</body>
+</html>
